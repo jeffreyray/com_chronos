@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="scheduledshift.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="employee"
+				label="CHRONOS_FIELD_EMPLOYEE"
+				alias="_employee_number"
+				filter="INT"
+				listKey="id"
+				labelKey="number"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_EMPLOYEE"/>
+
+		<field name="shift_type"
+				label="CHRONOS_FIELD_SHIFT_TYPE"
+				alias="_shift_type_label"
+				filter="INT"
+				msg-info="CHRONOS_VALIDATOR_UNPAID_BREAK_LENGTH_IN_MINUTES_THIS_VALUE_IS_USED_IN_DETERMINING_THE_SHIFT_LENGTH"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_SHIFT_TYPE"/>
+
+		<field name="start"
+				label="CHRONOS_FIELD_START"
+				alias="start"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[timeyyyymmddhhmm]]"
+				validate="timeyyyymmddhhmm"
+				type="ckcalendar"
+				format="%Y-%m-%d %H:%M"/>
+
+		<field name="end"
+				label="CHRONOS_FIELD_END"
+				alias="end"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[timeyyyymmddhhmm]]"
+				validate="timeyyyymmddhhmm"
+				type="ckcalendar"
+				format="%Y-%m-%d %H:%M"/>
+
+		<field name="access"
+				label="CHRONOS_FIELD_ACCESS"
+				alias="access"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				access="core.edit"
+				type="ckaccesslevel"/>
+
+		<field name="created_by"
+				label="CHRONOS_FIELD_CREATED_BY"
+				alias="created_by"
+				filter="INT"
+				access="core.edit"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_CREATED_BY"/>
+
+		<field name="creation_date"
+				label="CHRONOS_FIELD_CREATION_DATE"
+				alias="creation_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="modified_by"
+				label="CHRONOS_FIELD_MODIFIED_BY"
+				alias="modified_by"
+				filter="INT"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_MODIFIED_BY"/>
+
+		<field name="modification_date"
+				label="CHRONOS_FIELD_MODIFICATION_DATE"
+				alias="modification_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+	</fieldset>
+</form>

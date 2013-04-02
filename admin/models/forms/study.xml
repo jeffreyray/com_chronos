@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="study.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="number"
+				label="CHRONOS_FIELD_NUMBER"
+				alias="number"
+				unique="true"
+				filter="STRING"
+				class="validate[custom[length20]]"
+				validate="length20"
+				type="cktext"/>
+
+		<field name="title"
+				label="CHRONOS_FIELD_TITLE"
+				alias="title"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="alias"
+				label="CHRONOS_FIELD_ALIAS"
+				alias="alias"
+				unique="true"
+				filter="STRING"
+				class="validate[custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="client"
+				label="CHRONOS_FIELD_CLIENT_NAME"
+				alias="_client_name"
+				filter="INT"
+				listKey="id"
+				labelKey="name"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_CLIENT_NAME"/>
+
+		<field name="facility"
+				label="CHRONOS_FIELD_FACILITY_LABEL"
+				alias="_facility_label"
+				filter="INT"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY_LABEL"/>
+
+		<field name="start_date"
+				label="CHRONOS_FIELD_START_DATE"
+				alias="start_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="finish_date"
+				label="CHRONOS_FIELD_FINISH_DATE"
+				alias="finish_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="published"
+				label="CHRONOS_FIELD_PUBLISHED"
+				alias="published"
+				filter="BOOL"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				access="core.edit.state"
+				type="ckradio">
+			<option value="0">CHRONOS_FIELDS_BOOL_NO</option>
+			<option value="1">CHRONOS_FIELDS_BOOL_YES</option>
+		</field>
+
+		<field name="access"
+				label="CHRONOS_FIELD_ACCESS"
+				alias="access"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				access="core.edit"
+				type="ckaccesslevel"/>
+
+		<field name="created_by"
+				label="CHRONOS_FIELD_CREATED_BY"
+				alias="created_by"
+				filter="INT"
+				access="core.edit"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_CREATED_BY"/>
+
+		<field name="creation_date"
+				label="CHRONOS_FIELD_CREATION_DATE"
+				alias="creation_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="modified_by"
+				label="CHRONOS_FIELD_MODIFIED_BY"
+				alias="modified_by"
+				filter="INT"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_MODIFIED_BY"/>
+
+		<field name="modification_date"
+				label="CHRONOS_FIELD_MODIFICATION_DATE"
+				alias="modification_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+	</fieldset>
+</form>

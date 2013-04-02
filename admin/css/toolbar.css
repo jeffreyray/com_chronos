@@ -1,0 +1,49 @@
+/**                               ______________________________________________
+*                          o O   |                                              |
+*                 (((((  o      <    Generated with Cook Self Service  V2.0     |
+*                ( o o )         |______________________________________________|
+* --------oOOO-----(_)-----OOOo---------------------------------- www.j-cook.pro --- +
+* @version		2.5
+* @package		Chronos
+* @subpackage	Briefings
+* @copyright	Copyright (c) 2013 Jeffrey Ray Hallock, WB&A Market Research, All rights reserved
+* @author		Jeffrey Ray Hallock - mavin.ws - jeffrey.hallock@gmail.com
+* @license		GNU/GPL
+*
+* /!\  Joomla! is free software.
+* This version may have been modified pursuant to the GNU General Public License,
+* and as distributed it includes or is derivative of works licensed under the
+* GNU General Public License or other free or open source software licenses.
+*
+*             .oooO  Oooo.     See COPYRIGHT.php for copyright notices and details.
+*             (   )  (   )
+* -------------\ (----) /----------------------------------------------------------- +
+*               \_)  (_/
+*/
+
+.icon-16-task-new 		{ background-image: url('../images/icon-16-task-new.png'); }
+.icon-16-task-edit 		{ background-image: url('../images/icon-16-task-edit.png'); }
+.icon-16-task-delete 		{ background-image: url('../images/icon-16-task-delete.png'); }
+.icon-16-task-config 		{ background-image: url('../images/icon-16-task-config.png'); }
+.icon-16-task-save 		{ background-image: url('../images/icon-16-task-save.png'); }
+.icon-16-task-apply 		{ background-image: url('../images/icon-16-task-apply.png'); }
+.icon-16-task-cancel 		{ background-image: url('../images/icon-16-task-cancel.png'); }
+.icon-16-task- 		{ background-image: url('../images/icon-16-task-.png'); }
+
+
+
+.icon-48-chronos 		{ background-image: url('../images/icon-48-chronos.png'); }
+.icon-48-chronos_studies 		{ background-image: url('../images/icon-48-chronos_studies.png'); }
+.icon-48-chronos_facilities 		{ background-image: url('../images/icon-48-chronos_facilities.png'); }
+.icon-48-chronos_employees 		{ background-image: url('../images/icon-48-chronos_employees.png'); }
+.icon-48-chronos_clients 		{ background-image: url('../images/icon-48-chronos_clients.png'); }
+.icon-48-chronos_positions 		{ background-image: url('../images/icon-48-chronos_positions.png'); }
+.icon-48-chronos_scheduledshifts 		{ background-image: url('../images/icon-48-chronos_scheduledshifts.png'); }
+.icon-48-chronos_shifttypes 		{ background-image: url('../images/icon-48-chronos_shifttypes.png'); }
+.icon-48-chronos_wages 		{ background-image: url('../images/icon-48-chronos_wages.png'); }
+.icon-48-chronos_wagereasons 		{ background-image: url('../images/icon-48-chronos_wagereasons.png'); }
+.icon-48-chronos_workedshifts 		{ background-image: url('../images/icon-48-chronos_workedshifts.png'); }
+.icon-48-chronos_referralsources 		{ background-image: url('../images/icon-48-chronos_referralsources.png'); }
+.icon-48-chronos_terminationreasons 		{ background-image: url('../images/icon-48-chronos_terminationreasons.png'); }
+.icon-48-chronos_projectmanagers 		{ background-image: url('../images/icon-48-chronos_projectmanagers.png'); }
+.icon-48-chronos_briefings 		{ background-image: url('../images/icon-48-chronos_briefings.png'); }
