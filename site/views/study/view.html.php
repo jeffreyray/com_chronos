@@ -119,6 +119,10 @@ class ChronosViewStudy extends JView
 		$model_facility->addGroupBy("a.label");
 		$lists['fk']['facility'] = $model_facility->getItems();
 
+		$model_umbrella = JModel::getInstance('Umbrellas', 'ChronosModel');
+		$model_umbrella->addGroupBy("a.title");
+		$lists['fk']['umbrella'] = $model_umbrella->getItems();
+
 		$model_briefing = JModel::getInstance('Briefings', 'ChronosModel');
 		$model_briefing->addGroupBy("a.title");
 		$lists['fk']['briefing'] = $model_briefing->getItems();

@@ -69,9 +69,10 @@ class ChronosModelStudies extends ChronosModelList
 		$this->set('filter_vars', array(
 			'active' => 'string',
 			'facility' => 'int',
-			'client' => 'int',
 			'start_date_from' => 'date:%Y-%m-%d',
 			'start_date_to' => 'date:%Y-%m-%d',
+			'umbrella' => 'int',
+			'client' => 'int',
 			'briefing' => 'int',
 			'primary_manager' => 'int',
 			'secondary_manager' => 'int',
@@ -256,6 +257,10 @@ class ChronosModelStudies extends ChronosModelList
 		//WHERE - FILTER : Facility
 		if($this->getState('filter.facility') != null)
 			$this->addWhere('a.facility = '. (int)$this->getState('filter.facility'));
+
+		//WHERE - FILTER : Umbrella
+		if($this->getState('filter.umbrella') != null)
+			$this->addWhere('a.umbrella = '. (int)$this->getState('filter.umbrella'));
 
 		//WHERE - FILTER : Client
 		if($this->getState('filter.client') != null)

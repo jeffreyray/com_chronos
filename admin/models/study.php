@@ -154,6 +154,7 @@ class ChronosModelStudy extends ChronosModelItem
 				$data->number = null;
 				$data->title = null;
 				$data->alias = null;
+				$data->umbrella = $jinput->get('filter_umbrella', $this->getState('filter.umbrella'), 'INT');
 				$data->facility = $jinput->get('filter_facility', $this->getState('filter.facility'), 'INT');
 				$data->client = $jinput->get('filter_client', $this->getState('filter.client'), 'INT');
 				$data->tags = null;

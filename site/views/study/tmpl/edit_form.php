@@ -30,7 +30,7 @@ $fieldSets = $this->form->getFieldsets();
 ?>
 <?php $fieldSet = $this->form->getFieldset('edit.form');?>
 <fieldset class="fieldsform">
-	<table class="admintable">
+	<dl>
 
 	<?php
 	// JForms dynamic initialization (Cook Self Service proposal)
@@ -39,6 +39,9 @@ $fieldSets = $this->form->getFieldsets();
 		);
 	$fieldSet['jform_facility']->jdomOptions = array(
 			'list' => $this->lists['fk']['facility']
+		);
+	$fieldSet['jform_umbrella']->jdomOptions = array(
+			'list' => $this->lists['fk']['umbrella']
 		);
 	$fieldSet['jform_briefing']->jdomOptions = array(
 			'list' => $this->lists['fk']['briefing']
@@ -65,19 +68,17 @@ $fieldSets = $this->form->getFieldsets();
 	        echo $field->input;
 	    else:
 	    ?>
-		<tr>
-		<td align="right" class="key">
-		    <?php echo $field->label; ?>
-		</td>
-		<td<?php echo ($field->type == 'Editor' || $field->type == 'Textarea') ? ' style="clear: both; margin: 0;"' : ''?>>
-		    <?php echo $field->input ?>
-		</td>
-		</tr>
+	    <dt>
+	        <?php echo $field->label; ?>
+	    </dt>
+	    <dd<?php echo ($field->type == 'Editor' || $field->type == 'Textarea') ? ' style="clear: both; margin: 0;"' : ''?>>
+	        <?php echo $field->input ?>
+	    </dd>
 	    <?php
 	    endif;
 	endforeach;
 	?>
 
 
-	</table>
+	</dl>
 </fieldset>

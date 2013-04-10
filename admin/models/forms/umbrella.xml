@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="umbrella.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="number"
+				label="CHRONOS_FIELD_NUMBER"
+				alias="number"
+				filter="STRING"
+				class="validate[custom[length32]]"
+				validate="length32"
+				type="cktext"/>
+
+		<field name="title"
+				label="CHRONOS_FIELD_TITLE"
+				alias="title"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="alias"
+				label="CHRONOS_FIELD_ALIAS"
+				alias="alias"
+				filter="STRING"
+				class="validate[custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="facility"
+				label="CHRONOS_FIELD_FACILITY"
+				alias="_facility_label"
+				filter="INT"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY"/>
+
+		<field name="client"
+				label="CHRONOS_FIELD_CLIENT"
+				alias="_client_name"
+				filter="INT"
+				listKey="id"
+				labelKey="name"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_CLIENT"/>
+
+		<field name="active"
+				label="CHRONOS_FIELD_ACTIVE"
+				alias="active"
+				filter="BOOL"
+				type="ckradio">
+			<option value="0">CHRONOS_FIELDS_BOOL_NO</option>
+			<option value="1">CHRONOS_FIELDS_BOOL_YES</option>
+		</field>
+
+		<field name="note"
+				label="CHRONOS_FIELD_NOTE"
+				alias="note"
+				filter="RAW"
+				type="ckeditor"/>
+	</fieldset>
+</form>

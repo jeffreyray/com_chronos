@@ -40,7 +40,7 @@
 				listKey="id"
 				labelKey="name"
 				type="ckcombo"
-				nullLabel="CHRONOS_JSEARCH_SELECT_CLIENT_NAME"/>
+				nullLabel="CHRONOS_JSEARCH_SELECT_CLIENT"/>
 
 		<field name="facility"
 				label="CHRONOS_FIELD_FACILITY_LABEL"
@@ -49,7 +49,7 @@
 				listKey="id"
 				labelKey="label"
 				type="ckcombo"
-				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY_LABEL"/>
+				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY"/>
 
 		<field name="start_date"
 				label="CHRONOS_FIELD_START_DATE"

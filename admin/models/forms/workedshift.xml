@@ -22,7 +22,7 @@
 				listKey="id"
 				labelKey="label"
 				type="ckcombo"
-				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY_LABEL"/>
+				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY"/>
 
 		<field name="time_in"
 				label="CHRONOS_FIELD_TIME_IN"

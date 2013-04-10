@@ -49,11 +49,106 @@ class ChronosViewStudies extends JView
 	public function display($tpl = null)
 	{
 		$layout = $this->getLayout();
-		if (!in_array($layout, array('default')))
+		if (!in_array($layout, array('default', 'ajax')))
 			return;
 
 		$fct = "display" . ucfirst($layout);
 		$this->$fct($tpl);
+	}
+
+	/**
+	* Execute and display ajax queries
+	*
+	* @access	protected
+	* @param	string	$tpl	The name of the template file to parse; automatically searches through the template paths.
+	*
+	* @return	mixed	A string if successful, otherwise a JError object.
+	*
+	* @since	11.1
+	*/
+	protected function displayAjax($tpl = null)
+	{
+		$jinput = new JInput;
+		$render = $jinput->get('render', null, 'CMD');
+		$token = $jinput->get('token', null, 'BASE64');
+		$values = $jinput->get('values', null, 'ARRAY');
+
+
+
+		switch($render)
+		{
+			case 'filter3':
+				$model = $this->getModel();
+				$items = $model->getItems();
+				/* Ajax Filter : client > STUDY
+				 * Called from: view:productivities, layout:default
+				 * Group Level : 0
+				 */
+
+				$selected = (is_array($values))?$values[count($values)-1]:null;
+
+
+				$event = 'jQuery("#filter_study").val(this.value);submitform();';
+				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
+				echo "<div class='separator'>";
+				echo JDom::_('html.form.input.select', array(
+					'dataKey' => '__ajx_study',
+					'dataValue' => $selected,
+					'formControl' => null,
+					'list' => $items,
+					'listKey' => 'id',
+					'labelKey' => 'number',
+					'nullLabel' => "CHRONOS_JSEARCH_SELECT_STUDY",
+
+					'selectors' => array(
+										'onchange' => $event
+									)
+					));
+				echo "</div>";
+				echo "</div>";
+
+
+
+				break;
+
+			case 'groupby3':
+				$model = $this->getModel();
+				$items = $model->getItems();
+				/* Ajax Chain : client > STUDY
+				 * Called from: view:productivity, layout:edit
+				 * Group Level : 0
+				 */
+
+				$selected = (is_array($values))?$values[count($values)-1]:null;
+
+
+				$event = 'jQuery("#jform_study").val(this.value);';
+				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
+				echo "<div class='separator'>";
+				echo JDom::_('html.form.input.select', array(
+					'dataKey' => '__ajx_study',
+					'dataValue' => $selected,
+					'formControl' => 'jform',
+					'list' => $items,
+					'listKey' => 'id',
+					'labelKey' => 'number',
+					'nullLabel' => "CHRONOS_JSEARCH_SELECT_STUDY",
+
+					'selectors' => array(
+										'onchange' => $event
+									)
+					));
+				echo "</div>";
+				echo "</div>";
+
+
+
+				break;
+
+
+		}
+
+		jexit();
 	}
 
 	/**
@@ -95,12 +190,6 @@ class ChronosViewStudies extends JView
 		$this->filters['facility']->list = $model_facility->getItems();
 		$this->filters['facility']->value = $model->getState("filter.facility");
 
-		//Client > Name
-		$model_client = JModel::getInstance('clients', 'ChronosModel');
-		$this->filters['client'] = new stdClass();
-		$this->filters['client']->list = $model_client->getItems();
-		$this->filters['client']->value = $model->getState("filter.client");
-
 		//start_date
 		$this->filters['start_date'] = new stdClass();
 		$this->filters['start_date']->from = $model->getState("filter.start_date_from");
@@ -113,6 +202,12 @@ class ChronosViewStudies extends JView
 		//search_tags : search on Tags
 		$this->filters['search_tags'] = new stdClass();
 		$this->filters['search_tags']->value = $model->getState("search.search_tags");
+
+		//Umbrella > Title
+		$model_umbrella = JModel::getInstance('umbrellas', 'ChronosModel');
+		$this->filters['umbrella'] = new stdClass();
+		$this->filters['umbrella']->list = $model_umbrella->getItems();
+		$this->filters['umbrella']->value = $model->getState("filter.umbrella");
 
 
 		//Toolbar initialization

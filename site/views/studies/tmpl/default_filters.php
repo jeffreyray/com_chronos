@@ -48,8 +48,6 @@ function resetFilters()
 	    $('filter_active').value='';
 	if ($('filter_facility') != null)
 	    $('filter_facility').value='';
-	if ($('filter_client') != null)
-	    $('filter_client').value='';
 	if ($('filter_start_date_from') != null)
 		$('filter_start_date_from').value='';
 	if ($('filter_start_date_to') != null)
@@ -58,6 +56,8 @@ function resetFilters()
 	    $('filter_search_title').value='';
 	if ($('filter_search_tags') != null)
 	    $('filter_search_tags').value='';
+	if ($('filter_umbrella') != null)
+	    $('filter_umbrella').value='';
 
 
 /* TODO : Uncomment this if you want that the reset action proccess also on sorting values
@@ -171,26 +171,6 @@ function resetFilters()
 
 		</div>
 		<div style="float:left">
-			<!-- SELECT : Client > Name  -->
-
-				<div class='filter filter_client'>
-		
-					<?php echo JDom::_('html.form.input.select', array(
-											'dataKey' => 'filter_client',
-											'dataValue' => (string)$this->filters['client']->value,
-											'list' => $this->filters['client']->list,
-											'labelKey' => 'name',
-											'nullLabel' => "CHRONOS_FILTER_NULL_CLIENT",
-											'submitEventName' => 'onchange'
-												));
-
-						?>
-				</div>
-
-
-
-		</div>
-		<div style="float:left">
 			<!-- RANGE : Start Date  -->
 
 				<div class='filter range filter_start_date'>
@@ -211,6 +191,26 @@ function resetFilters()
 													));
 					?>
 				</div>
+
+
+		</div>
+		<div style="float:left">
+			<!-- SELECT : Umbrella > Title  -->
+
+				<div class='filter filter_umbrella'>
+		
+					<?php echo JDom::_('html.form.input.select', array(
+											'dataKey' => 'filter_umbrella',
+											'dataValue' => (string)$this->filters['umbrella']->value,
+											'list' => $this->filters['umbrella']->list,
+											'labelKey' => 'title',
+											'nullLabel' => "CHRONOS_FILTER_NULL_UMBRELLA",
+											'submitEventName' => 'onchange'
+												));
+
+						?>
+				</div>
+
 
 
 		</div>

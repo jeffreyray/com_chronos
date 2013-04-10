@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="edit.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="employee"
+				label="CHRONOS_FIELD_EMPLOYEE"
+				alias="_employee_number"
+				filter="INT"
+				type="ckajax"
+				ajaxContext="chronos.facilities.ajax.groupby2"/>
+
+		<field name="study"
+				label="CHRONOS_FIELD_STUDY"
+				alias="_study_number"
+				filter="INT"
+				type="ckajax"
+				ajaxContext="chronos.clients.ajax.groupby3"/>
+
+		<field name="date"
+				label="CHRONOS_FIELD_DATE"
+				alias="date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="source"
+				label="CHRONOS_FIELD_SOURCE"
+				alias="source"
+				required="true"
+				filter="STRING"
+				class="validate[required]"
+				listKey="value"
+				labelKey="text"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_SOURCE"/>
+
+		<field name="completes"
+				label="CHRONOS_FIELD_COMPLETES"
+				alias="completes"
+				required="true"
+				filter="INT"
+				class="validate[required,custom[positiveinteger]]"
+				validate="positiveinteger"
+				type="cktext"/>
+
+		<field name="calls"
+				label="CHRONOS_FIELD_CALLS"
+				alias="calls"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				type="cktext"/>
+
+		<field name="duration"
+				label="CHRONOS_FIELD_DURATION"
+				alias="duration"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				type="cktext"/>
+
+		<field name="cati_code"
+				label="CHRONOS_FIELD_CATI_CODE"
+				alias="cati_code"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				type="cktext"/>
+	</fieldset>
+</form>

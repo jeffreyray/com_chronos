@@ -29,7 +29,7 @@ defined('_JEXEC') or die('Restricted access');
 
 ?>
 <fieldset class="fieldsform">
-	<table class="admintable">
+	<dl>
 		<dt>
 			<label for="number">
 				<?php echo JText::_( "CHRONOS_FIELD_NUMBER" ); ?> :
@@ -51,6 +51,19 @@ defined('_JEXEC') or die('Restricted access');
 			<?php echo JDom::_('html.fly', array(
 											'dataKey' => 'title',
 											'dataObject' => $this->item
+											));
+			?>
+		</dd>
+		<dt>
+			<label for="_umbrella_title">
+				<?php echo JText::_( "CHRONOS_FIELD_UMBRELLA" ); ?> :
+			</label>
+		</dt>
+		<dd>
+			<?php echo JDom::_('html.fly', array(
+											'dataKey' => '_umbrella_title',
+											'dataObject' => $this->item,
+											'route' => array('view' => 'umbrella','layout' => 'view','cid[]' => $this->item->umbrella)
 											));
 			?>
 		</dd>
@@ -188,13 +201,14 @@ defined('_JEXEC') or die('Restricted access');
 		</dd>
 		<dt>
 			<label for="_primary_manager_display_name">
-				<?php echo JText::_( "CHRONOS_FIELD_PRIMARY_MANAGER_DISPLAY_NAME" ); ?> :
+				<?php echo JText::_( "CHRONOS_FIELD_PRIMARY_MANAGER" ); ?> :
 			</label>
 		</dt>
 		<dd>
 			<?php echo JDom::_('html.fly', array(
 											'dataKey' => '_primary_manager_display_name',
-											'dataObject' => $this->item
+											'dataObject' => $this->item,
+											'route' => array('view' => 'projectmanager','layout' => 'view','cid[]' => $this->item->primary_manager)
 											));
 			?>
 		</dd>
@@ -213,7 +227,7 @@ defined('_JEXEC') or die('Restricted access');
 		</dd>
 		<dt>
 			<label for="cati_code">
-				<?php echo JText::_( "CHRONOS_FIELD_CATI_CODE" ); ?> :
+				<?php echo JText::_( "CHRONOS_FIELD_CATI_CODE_1" ); ?> :
 			</label>
 		</dt>
 		<dd>
@@ -344,5 +358,5 @@ defined('_JEXEC') or die('Restricted access');
 			?>
 		</dd>
 
-	</table>
+	</dl>
 </fieldset>

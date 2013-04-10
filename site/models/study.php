@@ -154,6 +154,7 @@ class ChronosModelStudy extends ChronosModelItem
 				$data->number = null;
 				$data->title = null;
 				$data->alias = null;
+				$data->umbrella = $jinput->get('filter_umbrella', $this->getState('filter.umbrella'), 'INT');
 				$data->facility = $jinput->get('filter_facility', $this->getState('filter.facility'), 'INT');
 				$data->client = $jinput->get('filter_client', $this->getState('filter.client'), 'INT');
 				$data->tags = null;
@@ -217,14 +218,14 @@ class ChronosModelStudy extends ChronosModelItem
 		if ($filter_facility = $app->getUserState($this->context.'.filter.facility'))
 			$this->setState('filter.facility', $filter_facility, null, 'int');
 
-		if ($filter_client = $app->getUserState($this->context.'.filter.client'))
-			$this->setState('filter.client', $filter_client, null, 'int');
-
 		if ($search_search_title = $app->getUserState($this->context.'.search.search_title'))
 			$this->setState('search.search_title', $search_search_title, null, 'varchar');
 
 		if ($search_search_tags = $app->getUserState($this->context.'.search.search_tags'))
 			$this->setState('search.search_tags', $search_search_tags, null, 'varchar');
+
+		if ($filter_umbrella = $app->getUserState($this->context.'.filter.umbrella'))
+			$this->setState('filter.umbrella', $filter_umbrella, null, 'int');
 
 
 
@@ -282,11 +283,13 @@ class ChronosModelStudy extends ChronosModelItem
 								.	'a.target_incidence,'
 								.	'a.target_length,'
 								.	'a.tier,'
-								.	'a.title');
+								.	'a.title,'
+								.	'a.umbrella');
 
 				//SELECT
 				$this->addSelect('_client_.name AS `_client_name`');
 				$this->addSelect('_facility_.label AS `_facility_label`');
+				$this->addSelect('_umbrella_.title AS `_umbrella_title`');
 				$this->addSelect('_briefing_.title AS `_briefing_title`');
 				$this->addSelect('_primary_manager_.display_name AS `_primary_manager_display_name`');
 				$this->addSelect('_secondary_manager_.display_name AS `_secondary_manager_display_name`');
@@ -294,6 +297,7 @@ class ChronosModelStudy extends ChronosModelItem
 				//JOIN
 				$this->addJoin('`chr_clients` AS _client_ ON _client_.id = a.client', 'LEFT');
 				$this->addJoin('`chr_facilities` AS _facility_ ON _facility_.id = a.facility', 'LEFT');
+				$this->addJoin('`chr_umbrellas` AS _umbrella_ ON _umbrella_.id = a.umbrella', 'LEFT');
 				$this->addJoin('`chr_briefings` AS _briefing_ ON _briefing_.id = a.briefing', 'LEFT');
 				$this->addJoin('`chr_projectmanagers` AS _primary_manager_ ON _primary_manager_.id = a.primary_manager', 'LEFT');
 				$this->addJoin('`chr_projectmanagers` AS _secondary_manager_ ON _secondary_manager_.id = a.secondary_manager', 'LEFT');
@@ -327,9 +331,11 @@ class ChronosModelStudy extends ChronosModelItem
 								.	'a.target_incidence,'
 								.	'a.target_length,'
 								.	'a.tier,'
-								.	'a.title');
+								.	'a.title,'
+								.	'a.umbrella');
 
 				//SELECT
+				$this->addSelect('_umbrella_.title AS `_umbrella_title`');
 				$this->addSelect('_client_.name AS `_client_name`');
 				$this->addSelect('_facility_.label AS `_facility_label`');
 				$this->addSelect('_briefing_.title AS `_briefing_title`');
@@ -337,6 +343,7 @@ class ChronosModelStudy extends ChronosModelItem
 				$this->addSelect('_secondary_manager_.display_name AS `_secondary_manager_display_name`');
 
 				//JOIN
+				$this->addJoin('`chr_umbrellas` AS _umbrella_ ON _umbrella_.id = a.umbrella', 'LEFT');
 				$this->addJoin('`chr_clients` AS _client_ ON _client_.id = a.client', 'LEFT');
 				$this->addJoin('`chr_facilities` AS _facility_ ON _facility_.id = a.facility', 'LEFT');
 				$this->addJoin('`chr_briefings` AS _briefing_ ON _briefing_.id = a.briefing', 'LEFT');
