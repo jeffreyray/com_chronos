@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6" method="new">
+	<name><![CDATA[Chronos]]></name>
+	<author><![CDATA[Jeffrey Ray Hallock]]></author>
+	<creationDate>2013-03-27</creationDate>
+	<copyright><![CDATA[Copyright (c) 2013 Jeffrey Ray Hallock, WB&A Market Research, All rights reserved]]></copyright>
+	<authorEmail><![CDATA[jeffrey.hallock@gmail.com]]></authorEmail>
+	<authorUrl><![CDATA[mavin.ws]]></authorUrl>
+	<version><![CDATA[2.5]]></version>
+	<license><![CDATA[GNU/GPL]]></license>
+	<description><![CDATA[]]></description>
+
+	<update>
+		<schemas>
+
+
+
+
+		</schemas>
+	</update>
+
+
+	<files folder="site">
+		<folder>controllers</folder>
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+		<filename>chronos.php</filename>
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB.com_chronos.ini</language>
+	</languages>
+
+	<administration>
+
+		<menu img="components/com_chronos/images/icon-16-chronos.png">CHRONOS_MENU_CHRONOS</menu>
+		<submenu>
+			
+			<menu img="components/com_chronos/images/icon-16-chronos_studies.png" link="option=com_chronos&amp;view=studies">CHRONOS_MENU_STUDIES</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_facilities.png" link="option=com_chronos&amp;view=facilities">CHRONOS_MENU_FACILITIES</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_employees.png" link="option=com_chronos&amp;view=employees">CHRONOS_MENU_EMPLOYEES</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_clients.png" link="option=com_chronos&amp;view=clients">CHRONOS_MENU_CLIENTS</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_scheduledshifts.png" link="option=com_chronos&amp;view=scheduledshifts">CHRONOS_MENU_SCHEDULED_SHIFTS</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_shifttypes.png" link="option=com_chronos&amp;view=shifttypes">CHRONOS_MENU_SHIFT_TYPES</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_wages.png" link="option=com_chronos&amp;view=wages">CHRONOS_MENU_WAGES</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_wagereasons.png" link="option=com_chronos&amp;view=wagereasons">CHRONOS_MENU_WAGE_REASONS</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_workedshifts.png" link="option=com_chronos&amp;view=workedshifts">CHRONOS_MENU_WORKED_SHIFTS</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_referralsources.png" link="option=com_chronos&amp;view=referralsources">CHRONOS_MENU_REFERRAL_SOURCES</menu>
+			<menu img="components/com_chronos/images/icon-16-chronos_terminationreasons.png" link="option=com_chronos&amp;view=terminationreasons">CHRONOS_MENU_TERMINATION_REASONS</menu>
+
+            
+		</submenu>
+
+		<files folder="admin">
+			<folder>classes</folder>
+			<folder>controllers</folder>
+			<folder>css</folder>
+			<folder>dom</folder>
+			<folder>helpers</folder>
+			<folder>images</folder>
+			<folder>js</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<filename>access.xml</filename>
+			<filename>chronos.php</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_chronos.ini</language>
+			<language tag="en-GB">language/en-GB.com_chronos.sys.ini</language>
+		</languages>
+
+	</administration>
+
+
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<scriptfile>script.php</scriptfile>
+
+
+
+
+
+
+</extension>

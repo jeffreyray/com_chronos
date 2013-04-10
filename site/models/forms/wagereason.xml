@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="edit.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="label"
+				label="CHRONOS_FIELD_LABEL"
+				alias="label"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="alias"
+				label="CHRONOS_FIELD_ALIAS"
+				alias="alias"
+				filter="STRING"
+				class="validate[custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+	</fieldset>
+</form>

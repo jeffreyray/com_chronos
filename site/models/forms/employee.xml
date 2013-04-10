@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="edit.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="number"
+				label="CHRONOS_FIELD_NUMBER"
+				alias="number"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				type="cktext"/>
+
+		<field name="first_name"
+				label="CHRONOS_FIELD_FIRST_NAME"
+				alias="first_name"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[length64]]"
+				validate="length64"
+				type="cktext"/>
+
+		<field name="middle_name"
+				label="CHRONOS_FIELD_MIDDLE_NAME"
+				alias="middle_name"
+				filter="STRING"
+				class="validate[custom[length64]]"
+				validate="length64"
+				type="cktext"/>
+
+		<field name="last_name"
+				label="CHRONOS_FIELD_LAST_NAME"
+				alias="last_name"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[length64]]"
+				validate="length64"
+				type="cktext"/>
+
+		<field name="gender"
+				label="CHRONOS_FIELD_GENDER"
+				alias="gender"
+				filter="STRING"
+				listKey="value"
+				labelKey="text"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_GENDER"/>
+
+		<field name="birth_date"
+				label="CHRONOS_FIELD_BIRTH_DATE"
+				alias="birth_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="image"
+				label="CHRONOS_FIELD_IMAGE"
+				alias="image"
+				filter="STRING"
+				class="validate[custom[file_9507]]"
+				validate="file"
+				ruleInstance="file_9507"
+				indirect="true"
+				root="[DIR_EMPLOYEES_IMAGE]"
+				type="ckfile"
+				view="employee"/>
+
+		<field name="contact_info"
+				label="CHRONOS_FIELD_CONTACT_INFO"
+				alias="contact_info"
+				filter="STRING"
+				type="cktextarea"/>
+
+		<field name="active"
+				label="CHRONOS_FIELD_ACTIVE"
+				alias="active"
+				filter="BOOL"
+				type="ckradio">
+			<option value="0">CHRONOS_FIELDS_BOOL_NO</option>
+			<option value="1">CHRONOS_FIELDS_BOOL_YES</option>
+		</field>
+
+		<field name="facility"
+				label="CHRONOS_FIELD_FACILITY"
+				alias="_facility_label"
+				filter="INT"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY"/>
+
+		<field name="position"
+				label="CHRONOS_FIELD_POSITION"
+				alias="_position_label"
+				filter="INT"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_POSITION"/>
+
+		<field name="tier"
+				label="CHRONOS_FIELD_TIER"
+				alias="tier"
+				filter="STRING"
+				listKey="value"
+				labelKey="text"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_TIER"/>
+
+		<field name="tags"
+				label="CHRONOS_FIELD_TAGS"
+				alias="tags"
+				filter="STRING"
+				msg-info="CHRONOS_VALIDATOR_ENTER_TAGS_SEPARATED_BY_SPACES_USE_PERIODS_TO_CONCATENATE_MULTIWORD_TAGS_EG_HIPHOP_RAP_ROCKANDROLL"
+				class="validate[custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="hire_date"
+				label="CHRONOS_FIELD_HIRE_DATE"
+				alias="hire_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="alt_hire_date"
+				label="CHRONOS_FIELD_ALT_HIRE_DATE"
+				alias="alt_hire_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="passed_probation"
+				label="CHRONOS_FIELD_PASSED_PROBATION"
+				alias="passed_probation"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="referral_source"
+				label="CHRONOS_FIELD_REFERRAL_SOURCE"
+				alias="_referral_source_label"
+				filter="INT"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_REFERRAL_SOURCE"/>
+
+		<field name="referrer"
+				label="CHRONOS_FIELD_REFERRER_EMPLOYEE"
+				alias="_referrer_number"
+				filter="INT"
+				type="ckajax"
+				ajaxContext="chronos.facilities.ajax.groupby1"/>
+
+		<field name="termination_date"
+				label="CHRONOS_FIELD_TERMINATION_DATE"
+				alias="termination_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="termination_reason"
+				label="CHRONOS_FIELD_TERMINATION_REASON"
+				alias="_termination_reason_label"
+				filter="INT"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_TERMINATION_REASON_LABEL"/>
+
+		<field name="note"
+				label="CHRONOS_FIELD_NOTE"
+				alias="note"
+				filter="RAW"
+				type="ckeditor"
+				width="90%"/>
+	</fieldset>
+</form>

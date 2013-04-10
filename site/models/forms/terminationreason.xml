@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="edit.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="label"
+				label="CHRONOS_FIELD_LABEL"
+				alias="label"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="alias"
+				label="CHRONOS_FIELD_ALIAS"
+				alias="alias"
+				filter="STRING"
+				type="cktext"/>
+
+		<field name="ordering"
+				label="CHRONOS_FIELD_ORDERING"
+				alias="ordering"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				access="core.edit,core.edit.state"
+				type="ckordering"
+				labelKey="label"/>
+
+		<field name="default"
+				label="CHRONOS_FIELD_DEFAULT"
+				alias="default"
+				filter="BOOL"
+				type="ckradio">
+			<option value="0">CHRONOS_FIELDS_BOOL_NO</option>
+			<option value="1">CHRONOS_FIELDS_BOOL_YES</option>
+		</field>
+
+		<field name="note"
+				label="CHRONOS_FIELD_NOTE"
+				alias="note"
+				filter="RAW"
+				type="ckeditor"/>
+	</fieldset>
+</form>

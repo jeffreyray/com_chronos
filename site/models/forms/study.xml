@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="edit.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="number"
+				label="CHRONOS_FIELD_NUMBER"
+				alias="number"
+				unique="true"
+				filter="STRING"
+				class="validate[custom[length20]]"
+				validate="length20"
+				type="cktext"/>
+
+		<field name="title"
+				label="CHRONOS_FIELD_TITLE"
+				alias="title"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="alias"
+				label="CHRONOS_FIELD_ALIAS"
+				alias="alias"
+				unique="true"
+				filter="STRING"
+				class="validate[custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="client"
+				label="CHRONOS_FIELD_CLIENT"
+				alias="_client_name"
+				filter="INT"
+				listKey="id"
+				labelKey="name"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_CLIENT"/>
+
+		<field name="facility"
+				label="CHRONOS_FIELD_FACILITY"
+				alias="_facility_label"
+				filter="INT"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY"/>
+
+		<field name="briefing"
+				label="CHRONOS_FIELD_BRIEFING"
+				alias="_briefing_title"
+				filter="INT"
+				listKey="id"
+				labelKey="title"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_BRIEFING"/>
+
+		<field name="tier"
+				label="CHRONOS_FIELD_TIER"
+				alias="tier"
+				filter="STRING"
+				listKey="value"
+				labelKey="text"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_TIER"/>
+
+		<field name="tags"
+				label="CHRONOS_FIELD_TAGS"
+				alias="tags"
+				filter="STRING"
+				class="validate[custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="active"
+				label="CHRONOS_FIELD_ACTIVE"
+				alias="active"
+				filter="BOOL"
+				msg-info="CHRONOS_VALIDATOR_IF_THE_STUDY_IS_CURRENTLY_ACTIVE"
+				type="ckradio">
+			<option value="0">CHRONOS_FIELDS_BOOL_NO</option>
+			<option value="1">CHRONOS_FIELDS_BOOL_YES</option>
+		</field>
+
+		<field name="display"
+				label="CHRONOS_FIELD_DISPLAY"
+				alias="display"
+				filter="BOOL"
+				msg-info="CHRONOS_VALIDATOR_WHETHER_OR_NOT_THIS_STUDY_APPEARS_ON_REPORTS_TRUE_FOR_YES_FALSE_FOR_NO"
+				type="ckradio">
+			<option value="0">CHRONOS_FIELDS_BOOL_NO</option>
+			<option value="1">CHRONOS_FIELDS_BOOL_YES</option>
+		</field>
+
+		<field name="start_date"
+				label="CHRONOS_FIELD_START_DATE"
+				alias="start_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="finish_date"
+				label="CHRONOS_FIELD_FINISH_DATE"
+				alias="finish_date"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="deadline"
+				label="CHRONOS_FIELD_DEADLINE"
+				alias="deadline"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="primary_manager"
+				label="CHRONOS_FIELD_PRIMARY_MANAGER"
+				alias="_primary_manager_display_name"
+				filter="INT"
+				listKey="id"
+				labelKey="display_name"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_PRIMARY_MANAGER"/>
+
+		<field name="secondary_manager"
+				label="CHRONOS_FIELD_SECONDARY_MANAGER"
+				alias="_secondary_manager_display_name"
+				filter="INT"
+				listKey="id"
+				labelKey="display_name"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_SECONDARY_MANAGER"/>
+
+		<field name="cati_code"
+				label="CHRONOS_FIELD_CATI_CODE"
+				alias="cati_code"
+				filter="STRING"
+				class="validate[custom[length32]]"
+				validate="length32"
+				type="cktext"/>
+
+		<field name="cost_code"
+				label="CHRONOS_FIELD_COST_CODE"
+				alias="cost_code"
+				filter="STRING"
+				class="validate[custom[length32]]"
+				validate="length32"
+				type="cktext"/>
+
+		<field name="quota"
+				label="CHRONOS_FIELD_QUOTA"
+				alias="quota"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				type="cktext"/>
+
+		<field name="target_cph"
+				label="CHRONOS_FIELD_TARGET_CPH"
+				alias="target_cph"
+				filter="FLOAT"
+				class="validate[custom[decimal3to2]]"
+				validate="decimal3to2"
+				type="cktext"/>
+
+		<field name="target_length"
+				label="CHRONOS_FIELD_TARGET_LENGTH"
+				alias="target_length"
+				filter="FLOAT"
+				class="validate[custom[decimal3to2]]"
+				validate="decimal3to2"
+				type="cktext"/>
+
+		<field name="target_incidence"
+				label="CHRONOS_FIELD_TARGET_INCIDENCE"
+				alias="target_incidence"
+				filter="FLOAT"
+				class="validate[custom[decimal3to2]]"
+				validate="decimal3to2"
+				type="cktext"/>
+
+		<field name="completes"
+				label="CHRONOS_FIELD_COMPLETES"
+				alias="completes"
+				filter="INT"
+				class="validate[custom[numeric]]"
+				validate="numeric"
+				type="cktext"/>
+
+		<field name="final_cph"
+				label="CHRONOS_FIELD_FINAL_CPH"
+				alias="final_cph"
+				filter="FLOAT"
+				class="validate[custom[decimal3to2]]"
+				validate="decimal3to2"
+				type="cktext"/>
+
+		<field name="final_length"
+				label="CHRONOS_FIELD_FINAL_LENGTH"
+				alias="final_length"
+				filter="FLOAT"
+				class="validate[custom[decimal3to2]]"
+				validate="decimal3to2"
+				type="cktext"/>
+
+		<field name="final_incidence"
+				label="CHRONOS_FIELD_FINAL_INCIDENCE"
+				alias="final_incidence"
+				filter="FLOAT"
+				class="validate[custom[decimal3to2]]"
+				validate="decimal3to2"
+				type="cktext"/>
+	</fieldset>
+</form>

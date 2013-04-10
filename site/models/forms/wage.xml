@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="edit.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="employee"
+				label="CHRONOS_FIELD_EMPLOYEE"
+				alias="_employee_number"
+				required="true"
+				filter="INT"
+				class="validate[required]"
+				listKey="id"
+				labelKey="number"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_EMPLOYEE_NUMBER"/>
+
+		<field name="date_effective"
+				label="CHRONOS_FIELD_DATE_EFFECTIVE"
+				alias="date_effective"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[timemmddyyyy]]"
+				validate="timemmddyyyy"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+
+		<field name="reason"
+				label="CHRONOS_FIELD_REASON_LABEL"
+				alias="_reason_label"
+				filter="INT"
+				listKey="id"
+				labelKey="label"
+				type="ckcombo"
+				nullLabel="CHRONOS_JSEARCH_SELECT_REASON_LABEL"/>
+
+		<field name="value"
+				label="CHRONOS_FIELD_VALUE"
+				alias="value"
+				required="true"
+				filter="FLOAT"
+				class="validate[required,custom[decimal3to2]]"
+				validate="decimal3to2"
+				type="cktext"/>
+
+		<field name="comment"
+				label="CHRONOS_FIELD_COMMENT"
+				alias="comment"
+				filter="STRING"
+				type="cktextarea"/>
+	</fieldset>
+</form>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<form>
+
+	<fieldset name="edit.form"
+			addfieldpath="/administrator/components/com_chronos/models/fields">
+
+		<field name="title"
+				label="CHRONOS_FIELD_TITLE"
+				alias="title"
+				required="true"
+				filter="STRING"
+				class="validate[required,custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="alias"
+				label="CHRONOS_FIELD_ALIAS"
+				alias="alias"
+				filter="STRING"
+				type="cktext"/>
+
+		<field name="tags"
+				label="CHRONOS_FIELD_TAGS"
+				alias="tags"
+				filter="STRING"
+				class="validate[custom[length255]]"
+				validate="length255"
+				type="cktext"/>
+
+		<field name="active"
+				label="CHRONOS_FIELD_ACTIVE"
+				alias="active"
+				filter="BOOL"
+				type="ckradio">
+			<option value="0">CHRONOS_FIELDS_BOOL_NO</option>
+			<option value="1">CHRONOS_FIELDS_BOOL_YES</option>
+		</field>
+
+		<field name="description"
+				label="CHRONOS_FIELD_DESCRIPTION"
+				alias="description"
+				filter="RAW"
+				type="ckeditor"/>
+
+		<field name="last_used"
+				label="CHRONOS_FIELD_LAST_USED"
+				alias="last_used"
+				filter="STRING"
+				class="validate[custom[timeyyyymmdd]]"
+				validate="timeyyyymmdd"
+				type="ckcalendar"
+				format="%Y-%m-%d"/>
+	</fieldset>
+</form>
