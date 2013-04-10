@@ -93,13 +93,7 @@ class ChronosModelEmployee extends ChronosModelItem
 		if (!parent::delete($pks))
 			return false;
 
-		//Integrity : Cascade delete in wage on employee
-		$model = JModel::getInstance('wage', 'ChronosModel');
-		if (!$model->integrityDelete('employee', $pks))
-		{
-			JError::raiseWarning( 1301, JText::_("CHRONOS_ALERT_ERROR_ON_CASCAD_DELETE") );
-			return false;
-		}
+
 
 		return true;
 	}

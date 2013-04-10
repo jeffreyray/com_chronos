@@ -77,11 +77,11 @@ class ChronosViewEmployees extends JView
 
 		switch($render)
 		{
-			case 'filter1':
+			case 'filter2':
 				$model = $this->getModel();
 				$items = $model->getItems();
 				/* Ajax Filter : facility > EMPLOYEE
-				 * Called from: view:scheduledshifts, layout:default
+				 * Called from: view:productivities, layout:default
 				 * Group Level : 0
 				 */
 
@@ -98,7 +98,41 @@ class ChronosViewEmployees extends JView
 					'list' => $items,
 					'listKey' => 'id',
 					'labelKey' => 'number',
-					'nullLabel' => "CHRONOS_JSEARCH_SELECT_EMPLOYEE_1",
+					'nullLabel' => "CHRONOS_JSEARCH_SELECT_EMPLOYEE",
+
+					'selectors' => array(
+										'onchange' => $event
+									)
+					));
+				echo "</div>";
+				echo "</div>";
+
+
+
+				break;
+
+			case 'groupby1':
+				$model = $this->getModel();
+				$items = $model->getItems();
+				/* Ajax Chain : facility > EMPLOYEE
+				 * Called from: view:productivity, layout:productivity
+				 * Group Level : 0
+				 */
+
+				$selected = (is_array($values))?$values[count($values)-1]:null;
+
+
+				$event = 'jQuery("#jform_employee").val(this.value);';
+				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
+				echo "<div class='separator'>";
+				echo JDom::_('html.form.input.select', array(
+					'dataKey' => '__ajx_employee',
+					'dataValue' => $selected,
+					'formControl' => 'jform',
+					'list' => $items,
+					'listKey' => 'id',
+					'labelKey' => 'number',
+					'nullLabel' => "CHRONOS_JSEARCH_SELECT_EMPLOYEE",
 
 					'selectors' => array(
 										'onchange' => $event

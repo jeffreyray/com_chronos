@@ -78,6 +78,11 @@ class ChronosHelper
 		$lists["employees"]["tier"]["4"] = array("value" => "4", "text" => JText::_("CHRONOS_ENUM_EMPLOYEES_TIER_4"));
 
 
+		$lists["productivities"]["source"] = array();
+		$lists["productivities"]["source"]["1"] = array("value" => "1", "text" => JText::_("CHRONOS_ENUM_PRODUCTIVITIES_SOURCE_CATI"));
+		$lists["productivities"]["source"]["2"] = array("value" => "2", "text" => JText::_("CHRONOS_ENUM_PRODUCTIVITIES_SOURCE_PAPER"));
+
+
 
 
 		return $lists[$ctrl][$fieldName];

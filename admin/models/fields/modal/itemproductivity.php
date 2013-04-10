@@ -60,7 +60,7 @@ class JFormFieldModal_Itemproductivity extends JFormFieldModal_Item
 	{
 		$db	= JFactory::getDBO();
 		$db->setQuery(
-			'SELECT `completes`' .
+			'SELECT `date`' .
 			' FROM chr_productivities' .
 			' WHERE id = '.(int) $this->value
 		);

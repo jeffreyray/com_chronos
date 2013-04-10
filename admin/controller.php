@@ -75,13 +75,10 @@ class ChronosController extends CkJController
 		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_FACILITIES"), 'index.php?option=com_chronos&view=facilities', ($view == 'facilities'));
 		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_EMPLOYEES"), 'index.php?option=com_chronos&view=employees', ($view == 'employees'));
 		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_CLIENTS"), 'index.php?option=com_chronos&view=clients', ($view == 'clients'));
-		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_SCHEDULED_SHIFTS"), 'index.php?option=com_chronos&view=scheduledshifts', ($view == 'scheduledshifts'));
-		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_SHIFT_TYPES"), 'index.php?option=com_chronos&view=shifttypes', ($view == 'shifttypes'));
-		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_WAGES"), 'index.php?option=com_chronos&view=wages', ($view == 'wages'));
-		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_WAGE_REASONS"), 'index.php?option=com_chronos&view=wagereasons', ($view == 'wagereasons'));
-		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_WORKED_SHIFTS"), 'index.php?option=com_chronos&view=workedshifts', ($view == 'workedshifts'));
 		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_REFERRAL_SOURCES"), 'index.php?option=com_chronos&view=referralsources', ($view == 'referralsources'));
 		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_TERMINATION_REASONS"), 'index.php?option=com_chronos&view=terminationreasons', ($view == 'terminationreasons'));
+		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_UMBRELLAS"), 'index.php?option=com_chronos&view=umbrellas', ($view == 'umbrellas'));
+		JSubMenuHelper::addEntry(JText::_("CHRONOS_VIEW_PRODUCTIVITIES"), 'index.php?option=com_chronos&view=productivities', ($view == 'productivities'));
 
 	}
 

@@ -159,7 +159,7 @@ function resetFilters()
 												'alignHz' => true,
 												'submitEventName' => 'onchange',
 												'styles' => array('width' => '80px'),
-												'dateFormat' => '%m-%d-%Y'
+												'dateFormat' => '%Y-%m-%d'
 													));
 					?>
 				</div>

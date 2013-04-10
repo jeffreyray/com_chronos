@@ -163,7 +163,7 @@ class ChronosModelProductivities extends ChronosModelList
 		$session = JFactory::getSession();
 		$acl = ChronosHelper::getActions();
 
-		parent::populateState('a.completes', 'asc');
+		parent::populateState('a.date', 'asc');
 	}
 
 	/**

@@ -151,9 +151,9 @@ class ChronosModelProductivity extends ChronosModelItem
 
 				$data->id = 0;
 				$data->params = null;
+				$data->date = null;
 				$data->completes = null;
 				$data->cati_code = null;
-				$data->date = null;
 				$data->duration = null;
 				$data->employee = $jinput->get('filter_employee', $this->getState('filter.employee'), 'INT');
 				$data->study = $jinput->get('filter_study', $this->getState('filter.study'), 'INT');

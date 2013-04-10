@@ -5,7 +5,7 @@
 * --------oOOO-----(_)-----OOOo---------------------------------- www.j-cook.pro --- +
 * @version		2.5
 * @package		Chronos
-* @subpackage	Briefings
+* @subpackage	Productivities
 * @copyright	Copyright (c) 2013 Jeffrey Ray Hallock, WB&A Market Research, All rights reserved
 * @author		Jeffrey Ray Hallock - mavin.ws - jeffrey.hallock@gmail.com
 * @license		GNU/GPL
@@ -38,12 +38,9 @@
 .icon-48-chronos_employees 		{ background-image: url('../images/icon-48-chronos_employees.png'); }
 .icon-48-chronos_clients 		{ background-image: url('../images/icon-48-chronos_clients.png'); }
 .icon-48-chronos_positions 		{ background-image: url('../images/icon-48-chronos_positions.png'); }
-.icon-48-chronos_scheduledshifts 		{ background-image: url('../images/icon-48-chronos_scheduledshifts.png'); }
-.icon-48-chronos_shifttypes 		{ background-image: url('../images/icon-48-chronos_shifttypes.png'); }
-.icon-48-chronos_wages 		{ background-image: url('../images/icon-48-chronos_wages.png'); }
-.icon-48-chronos_wagereasons 		{ background-image: url('../images/icon-48-chronos_wagereasons.png'); }
-.icon-48-chronos_workedshifts 		{ background-image: url('../images/icon-48-chronos_workedshifts.png'); }
 .icon-48-chronos_referralsources 		{ background-image: url('../images/icon-48-chronos_referralsources.png'); }
 .icon-48-chronos_terminationreasons 		{ background-image: url('../images/icon-48-chronos_terminationreasons.png'); }
 .icon-48-chronos_projectmanagers 		{ background-image: url('../images/icon-48-chronos_projectmanagers.png'); }
 .icon-48-chronos_briefings 		{ background-image: url('../images/icon-48-chronos_briefings.png'); }
+.icon-48-chronos_umbrellas 		{ background-image: url('../images/icon-48-chronos_umbrellas.png'); }
+.icon-48-chronos_productivities 		{ background-image: url('../images/icon-48-chronos_productivities.png'); }

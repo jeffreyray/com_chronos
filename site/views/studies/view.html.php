@@ -77,7 +77,7 @@ class ChronosViewStudies extends JView
 
 		switch($render)
 		{
-			case 'filter3':
+			case 'filter2':
 				$model = $this->getModel();
 				$items = $model->getItems();
 				/* Ajax Filter : client > STUDY

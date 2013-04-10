@@ -42,12 +42,10 @@ $saveOrder	= $listOrder == 'a.ordering';
 	<table id='grid' class='adminlist' cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>
-			<th width="5">
-				<?php echo JText::_( 'NUM' ); ?>
-			</th>
+
 
 			<th align="left">
-				<?php echo JHTML::_('grid.sort',  "CHRONOS_FIELD_COMPLETES", 'a.completes', $listDirn, $listOrder ); ?>
+				<?php echo JHTML::_('grid.sort',  "CHRONOS_FIELD_DATE", 'a.date', $listDirn, $listOrder ); ?>
 			</th>
 
 			<th align="center">
@@ -73,14 +71,12 @@ $saveOrder	= $listOrder == 'a.ordering';
 
 		<tr class="<?php echo "row$k"; ?>"
 			style="cursor:pointer"
-			onclick="if (window.parent) window.parent.<?php echo $this->escape($function);?>('<?php echo $row->id; ?>', '<?php echo $this->escape(addslashes($row->completes)); ?>', 'cid');">
+			onclick="if (window.parent) window.parent.<?php echo $this->escape($function);?>('<?php echo $row->id; ?>', '<?php echo $this->escape(addslashes($row->date)); ?>', 'cid');">
 
-			<td class='row_id'>
-				<?php echo $this->pagination->getRowOffset( $i ); ?>
-            </td>
+
 
 			<td align="left">
-				<?php echo $row->completes; ?>
+				<?php echo $row->date; ?>
 			</td>
 
             <td align="center">

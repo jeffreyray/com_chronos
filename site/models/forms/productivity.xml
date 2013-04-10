@@ -11,6 +11,7 @@
 				alias="_employee_number"
 				filter="INT"
 				type="ckajax"
+				required="true"
 				ajaxContext="chronos.facilities.ajax.groupby2"/>
 
 		<field name="study"
@@ -18,6 +19,7 @@
 				alias="_study_number"
 				filter="INT"
 				type="ckajax"
+				required="true"
 				ajaxContext="chronos.clients.ajax.groupby3"/>
 
 		<field name="date"
@@ -27,6 +29,7 @@
 				class="validate[custom[timeyyyymmdd]]"
 				validate="timeyyyymmdd"
 				type="ckcalendar"
+				required="1"
 				format="%Y-%m-%d"/>
 
 		<field name="source"

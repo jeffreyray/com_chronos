@@ -93,13 +93,7 @@ class ChronosModelEmployee extends ChronosModelItem
 		if (!parent::delete($pks))
 			return false;
 
-		//Integrity : Cascade delete in wage on employee
-		$model = JModel::getInstance('wage', 'ChronosModel');
-		if (!$model->integrityDelete('employee', $pks))
-		{
-			JError::raiseWarning( 1301, JText::_("CHRONOS_ALERT_ERROR_ON_CASCAD_DELETE") );
-			return false;
-		}
+
 
 		return true;
 	}
@@ -264,7 +258,8 @@ class ChronosModelEmployee extends ChronosModelItem
 		$this->addSelect(	'a.id,'
 						.	'a.access,'
 						.	'a.checked_out,'
-						.	'a.created_by');
+						.	'a.created_by,'
+						.       'CONCAT_WS(" ", a.number, a.first_name, a.last_name) as name_and_number' );
 
 		switch($this->getState('context'))
 		{

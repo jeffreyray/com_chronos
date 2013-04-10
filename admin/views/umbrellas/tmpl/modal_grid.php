@@ -42,9 +42,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 	<table id='grid' class='adminlist' cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>
-			<th width="5">
-				<?php echo JText::_( 'NUM' ); ?>
-			</th>
+
 
 			<th align="left">
 				<?php echo JHTML::_('grid.sort',  "CHRONOS_FIELD_TITLE", 'a.title', $listDirn, $listOrder ); ?>
@@ -75,9 +73,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 			style="cursor:pointer"
 			onclick="if (window.parent) window.parent.<?php echo $this->escape($function);?>('<?php echo $row->id; ?>', '<?php echo $this->escape(addslashes($row->title)); ?>', 'cid');">
 
-			<td class='row_id'>
-				<?php echo $this->pagination->getRowOffset( $i ); ?>
-            </td>
+
 
 			<td align="left">
 				<?php echo $row->title; ?>

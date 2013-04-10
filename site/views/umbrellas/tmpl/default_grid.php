@@ -41,9 +41,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 	<table id='grid' class='adminlist' cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>
-			<th width="5">
-				<?php echo JText::_( 'NUM' ); ?>
-			</th>
+
 
 			<?php if ($model->canEdit()): ?>
             <th width="20">
@@ -94,9 +92,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 
 		<tr class="<?php echo "row$k"; ?>">
 
-			<td class='row_id'>
-				<?php echo $this->pagination->getRowOffset( $i ); ?>
-            </td>
+
 
 			<?php if ($model->canEdit()): ?>
 			<td>
@@ -111,7 +107,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 			</td>
 			<?php endif; ?>
 
-            <td style="text-align:left" width="5%">
+            <td style="text-align:left" width="10%">
 				<?php echo JDom::_('html.fly', array(
 												'dataKey' => 'number',
 												'dataObject' => $row,

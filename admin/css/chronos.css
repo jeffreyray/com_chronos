@@ -24,11 +24,6 @@
 /**
 * JForms
 **/
-
-.fieldsform .admintable td.key {
-	width: 140px;
-}
-
 .fieldsform label {
 	float:left;
 	width:140px;
@@ -59,20 +54,7 @@ fieldset.radio {
 .form-widget {
 	display:inline-block;
 	clear:all;
-	width: 100%;
 }
-
-.CodeMirror-wrapping {
-	border: 1px solid #DDDDDD;
-	height: 600px;
-}
-
-.fieldsform select {
-	border: 1px solid #DDDDDD;
-	line-height: 2em;
-	padding: 10px 8px;
-}
-
 
 /**
 * Formvalidator

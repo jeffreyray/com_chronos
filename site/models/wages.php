@@ -70,10 +70,10 @@ class ChronosModelWages extends ChronosModelList
 		$this->set('filter_vars', array(
 			'employee' => 'int',
 			'reason' => 'int',
-			'date_effective_from' => 'date:%m-%d-%Y',
-			'date_effective_to' => 'date:%m-%d-%Y',
+			'date_effective_from' => 'date:%Y-%m-%d',
+			'date_effective_to' => 'date:%Y-%m-%d',
 			'employee_facility' => 'int',
-			'date_effective' => 'date:%m-%d-%Y'
+			'date_effective' => 'date:%Y-%m-%d'
 				));
 
 		//Define the searchable fields

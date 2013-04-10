@@ -62,9 +62,9 @@
 				label="CHRONOS_FIELD_IMAGE"
 				alias="image"
 				filter="STRING"
-				class="validate[custom[file_9507]]"
+				class="validate[custom[file_9991]]"
 				validate="file"
-				ruleInstance="file_9507"
+				ruleInstance="file_9991"
 				indirect="true"
 				root="[DIR_EMPLOYEES_IMAGE]"
 				type="ckfile"
@@ -174,7 +174,7 @@
 				format="%Y-%m-%d"/>
 
 		<field name="termination_reason"
-				label="CHRONOS_FIELD_TERMINATION_REASON"
+				label="CHRONOS_FIELD_TERMINATION_REASON_LABEL"
 				alias="_termination_reason_label"
 				filter="INT"
 				listKey="id"
@@ -186,7 +186,6 @@
 				label="CHRONOS_FIELD_NOTE"
 				alias="note"
 				filter="RAW"
-				type="ckeditor"
-				width="90%"/>
+				type="ckeditor"/>
 	</fieldset>
 </form>

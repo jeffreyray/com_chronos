@@ -49,11 +49,168 @@ class ChronosViewClients extends JView
 	public function display($tpl = null)
 	{
 		$layout = $this->getLayout();
-		if (!in_array($layout, array('default', 'modal')))
+		if (!in_array($layout, array('default', 'modal', 'ajax')))
 			return;
 
 		$fct = "display" . ucfirst($layout);
 		$this->$fct($tpl);
+	}
+
+	/**
+	* Execute and display ajax queries
+	*
+	* @access	protected
+	* @param	string	$tpl	The name of the template file to parse; automatically searches through the template paths.
+	*
+	* @return	mixed	A string if successful, otherwise a JError object.
+	*
+	* @since	11.1
+	*/
+	protected function displayAjax($tpl = null)
+	{
+		$jinput = new JInput;
+		$render = $jinput->get('render', null, 'CMD');
+		$token = $jinput->get('token', null, 'BASE64');
+		$values = $jinput->get('values', null, 'ARRAY');
+
+
+
+		switch($render)
+		{
+			case 'filter1':
+				$model = $this->getModel();
+				$items = $model->getItems();
+				/* Ajax Filter : CLIENT > study
+				 * Called from: view:productivities, layout:default
+				 * Group Level : 1
+				 */
+				//Init or override the list of joined values for entry point
+				if (is_array($values) && isset($values[0]) && $values[0])   //First value available
+				{
+					$model_item = JModel::getInstance('study', 'ChronosModel');
+					$model_item->addJoin("LEFT JOIN chr_clients AS _client_ ON _client_.id = a.client");
+					$model_item->addSelect("a.client as client");
+
+					$model_item->setState('study.id', $values[0]);	//Ground value
+					$selectedItem = $model_item->getItem();
+
+					//Redefine the ajax chain key values
+					if ($model_item->getId() > 0)
+					{
+						$values[1] = $selectedItem->client;
+
+					}
+
+				}
+				$selected = (is_array($values))?$values[count($values)-1]:null;
+
+				$ajaxNamespace = "chronos.studies.ajax.filter1";
+				$wrapper = "_ajax_studies_$render";
+				$event = 'jQuery("#filter_study").val(""); if(this.value != ""){
+						jQuery("#' . $wrapper . '").jdomAjax({namespace:"' . $ajaxNamespace . '", vars:{"filter_client":this.value}})
+						}else{jQuery("#' . $wrapper . '").innerHTML = "";}submitform();';
+				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
+				echo JDom::_('html.form.input.select', array(
+					'dataKey' => 'filter_study_client',
+					'dataValue' => $selected,
+					'formControl' => null,
+					'list' => $items,
+					'listKey' => 'id',
+					'labelKey' => 'name',
+					'nullLabel' => "CHRONOS_JSEARCH_SELECT_CLIENT",
+
+					'selectors' => array(
+										'onchange' => $event
+									)
+					));
+				echo "</div>";
+
+
+			//Ajax chain on load -> Follows the values
+				echo JDom::_('html.form.input.ajax.chain', array(
+					'ajaxWrapper' => $wrapper,
+					'ajaxContext' => $ajaxNamespace,
+					'ajaxVars' => array(
+									'filter_client' => $selected,
+									'values' => $values),
+					'ajaxToken' => $token,
+
+					));
+
+
+			//Wrapper Div
+				echo("<div id='" . $wrapper ."' class='ajaxchain-wrapper ajaxchain-wrapper-hz'></div>");
+				break;
+
+			case 'groupby2':
+				$model = $this->getModel();
+				$items = $model->getItems();
+				/* Ajax Chain : CLIENT > study
+				 * Called from: view:productivity, layout:productivity
+				 * Group Level : 1
+				 */
+				//Init or override the list of joined values for entry point
+				if (is_array($values) && isset($values[0]) && $values[0])   //First value available
+				{
+					$model_item = JModel::getInstance('study', 'ChronosModel');
+					$model_item->addJoin("LEFT JOIN chr_clients AS _client_ ON _client_.id = a.client");
+					$model_item->addSelect("a.client as client");
+
+					$model_item->setState('study.id', $values[0]);	//Ground value
+					$selectedItem = $model_item->getItem();
+
+					//Redefine the ajax chain key values
+					if ($model_item->getId() > 0)
+					{
+						$values[1] = $selectedItem->client;
+
+					}
+
+				}
+				$selected = (is_array($values))?$values[count($values)-1]:null;
+
+				$ajaxNamespace = "chronos.studies.ajax.groupby2";
+				$wrapper = "_ajax_studies_$render";
+				$event = 'jQuery("#jform_study").val(""); if(this.value != ""){
+						jQuery("#' . $wrapper . '").jdomAjax({namespace:"' . $ajaxNamespace . '", vars:{"filter_client":this.value}})
+						}else{jQuery("#' . $wrapper . '").innerHTML = "";}';
+				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
+				echo JDom::_('html.form.input.select', array(
+					'dataKey' => 'study_client',
+					'dataValue' => $selected,
+					'formControl' => 'jform',
+					'list' => $items,
+					'listKey' => 'id',
+					'labelKey' => 'name',
+					'nullLabel' => "CHRONOS_JSEARCH_SELECT_CLIENT",
+
+					'selectors' => array(
+										'onchange' => $event
+									)
+					));
+				echo "</div>";
+
+
+			//Ajax chain on load -> Follows the values
+				echo JDom::_('html.form.input.ajax.chain', array(
+					'ajaxWrapper' => $wrapper,
+					'ajaxContext' => $ajaxNamespace,
+					'ajaxVars' => array(
+									'filter_client' => $selected,
+									'values' => $values),
+					'ajaxToken' => $token,
+
+					));
+
+
+			//Wrapper Div
+				echo("<div id='" . $wrapper ."' class='ajaxchain-wrapper ajaxchain-wrapper-hz'></div>");
+				break;
+
+
+		}
+
+		jexit();
 	}
 
 	/**

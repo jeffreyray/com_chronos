@@ -42,6 +42,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 	<thead>
 		<tr>
 
+
 			<?php if ($model->canEdit()): ?>
             <th width="20">
 				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->items ); ?>);" />
@@ -66,6 +67,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 		?>
 
 		<tr class="<?php echo "row$k"; ?>">
+
 
 
 			<?php if ($model->canEdit()): ?>

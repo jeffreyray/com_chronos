@@ -142,11 +142,76 @@ class ChronosViewFacilities extends JView
 				echo("<div id='" . $wrapper ."' class='ajaxchain-wrapper ajaxchain-wrapper-hz'></div>");
 				break;
 
+			case 'filter1':
+				$model = $this->getModel();
+				$items = $model->getItems();
+				/* Ajax Filter : FACILITY > employee
+				 * Called from: view:productivities, layout:default
+				 * Group Level : 1
+				 */
+				//Init or override the list of joined values for entry point
+				if (is_array($values) && isset($values[0]) && $values[0])   //First value available
+				{
+					$model_item = JModel::getInstance('employee', 'ChronosModel');
+					$model_item->addJoin("LEFT JOIN chr_facilities AS _facility_ ON _facility_.id = a.facility");
+					$model_item->addSelect("a.facility as facility");
+
+					$model_item->setState('employee.id', $values[0]);	//Ground value
+					$selectedItem = $model_item->getItem();
+
+					//Redefine the ajax chain key values
+					if ($model_item->getId() > 0)
+					{
+						$values[1] = $selectedItem->facility;
+
+					}
+
+				}
+				$selected = (is_array($values))?$values[count($values)-1]:null;
+
+				$ajaxNamespace = "chronos.employees.ajax.filter1";
+				$wrapper = "_ajax_employees_$render";
+				$event = 'jQuery("#filter_employee").val(""); if(this.value != ""){
+						jQuery("#' . $wrapper . '").jdomAjax({namespace:"' . $ajaxNamespace . '", vars:{"filter_facility":this.value}})
+						}else{jQuery("#' . $wrapper . '").innerHTML = "";}';
+				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
+				echo JDom::_('html.form.input.select', array(
+					'dataKey' => 'filter_employee_facility',
+					'dataValue' => $selected,
+					'formControl' => null,
+					'list' => $items,
+					'listKey' => 'id',
+					'labelKey' => 'label',
+					'nullLabel' => "CHRONOS_JSEARCH_SELECT_FACILITY",
+
+					'selectors' => array(
+										'onchange' => $event
+									)
+					));
+				echo "</div>";
+
+
+			//Ajax chain on load -> Follows the values
+				echo JDom::_('html.form.input.ajax.chain', array(
+					'ajaxWrapper' => $wrapper,
+					'ajaxContext' => $ajaxNamespace,
+					'ajaxVars' => array(
+									'filter_facility' => $selected,
+									'values' => $values),
+					'ajaxToken' => $token,
+
+					));
+
+
+			//Wrapper Div
+				echo("<div id='" . $wrapper ."' class='ajaxchain-wrapper ajaxchain-wrapper-hz'></div>");
+				break;
+
 			case 'groupby2':
 				$model = $this->getModel();
 				$items = $model->getItems();
 				/* Ajax Chain : FACILITY > employee
-				 * Called from: view:scheduledshift, layout:edit
+				 * Called from: view:productivity, layout:edit
 				 * Group Level : 1
 				 */
 				//Init or override the list of joined values for entry point
@@ -179,71 +244,6 @@ class ChronosViewFacilities extends JView
 					'dataKey' => 'employee_facility',
 					'dataValue' => $selected,
 					'formControl' => 'jform',
-					'list' => $items,
-					'listKey' => 'id',
-					'labelKey' => 'label',
-					'nullLabel' => "CHRONOS_JSEARCH_SELECT_FACILITY",
-
-					'selectors' => array(
-										'onchange' => $event
-									)
-					));
-				echo "</div>";
-
-
-			//Ajax chain on load -> Follows the values
-				echo JDom::_('html.form.input.ajax.chain', array(
-					'ajaxWrapper' => $wrapper,
-					'ajaxContext' => $ajaxNamespace,
-					'ajaxVars' => array(
-									'filter_facility' => $selected,
-									'values' => $values),
-					'ajaxToken' => $token,
-
-					));
-
-
-			//Wrapper Div
-				echo("<div id='" . $wrapper ."' class='ajaxchain-wrapper ajaxchain-wrapper-hz'></div>");
-				break;
-
-			case 'filter1':
-				$model = $this->getModel();
-				$items = $model->getItems();
-				/* Ajax Filter : FACILITY > employee
-				 * Called from: view:wages, layout:default
-				 * Group Level : 1
-				 */
-				//Init or override the list of joined values for entry point
-				if (is_array($values) && isset($values[0]) && $values[0])   //First value available
-				{
-					$model_item = JModel::getInstance('employee', 'ChronosModel');
-					$model_item->addJoin("LEFT JOIN chr_facilities AS _facility_ ON _facility_.id = a.facility");
-					$model_item->addSelect("a.facility as facility");
-
-					$model_item->setState('employee.id', $values[0]);	//Ground value
-					$selectedItem = $model_item->getItem();
-
-					//Redefine the ajax chain key values
-					if ($model_item->getId() > 0)
-					{
-						$values[1] = $selectedItem->facility;
-
-					}
-
-				}
-				$selected = (is_array($values))?$values[count($values)-1]:null;
-
-				$ajaxNamespace = "chronos.employees.ajax.filter1";
-				$wrapper = "_ajax_employees_$render";
-				$event = 'jQuery("#filter_employee").val(""); if(this.value != ""){
-						jQuery("#' . $wrapper . '").jdomAjax({namespace:"' . $ajaxNamespace . '", vars:{"filter_facility":this.value}})
-						}else{jQuery("#' . $wrapper . '").innerHTML = "";}submitform();';
-				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
-				echo JDom::_('html.form.input.select', array(
-					'dataKey' => 'filter_employee_facility',
-					'dataValue' => $selected,
-					'formControl' => null,
 					'list' => $items,
 					'listKey' => 'id',
 					'labelKey' => 'label',

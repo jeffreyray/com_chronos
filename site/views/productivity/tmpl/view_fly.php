@@ -29,7 +29,7 @@ defined('_JEXEC') or die('Restricted access');
 
 ?>
 <fieldset class="fieldsform">
-	<dl>
+	<table class="admintable">
 		<dt>
 			<label for="_employee_number">
 				<?php echo JText::_( "CHRONOS_FIELD_EMPLOYEE" ); ?> :
@@ -134,5 +134,5 @@ defined('_JEXEC') or die('Restricted access');
 			?>
 		</dd>
 
-	</dl>
+	</table>
 </fieldset>

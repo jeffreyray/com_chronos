@@ -194,7 +194,8 @@ class ChronosModelEmployees extends ChronosModelList
 		$this->addSelect(	'a.id,'
 						.	'a.access,'
 						.	'a.checked_out,'
-						.	'a.created_by');
+						.	'a.created_by,'
+						.       "CONCAT_WS(' ', a.number, a.first_name, a.last_name) as name_and_number");
 
 		switch($this->getState('context'))
 		{

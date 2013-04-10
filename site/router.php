@@ -51,7 +51,7 @@ function ChronosBuildRoute(&$query){
 
 	if(isset($query['id']))
 	{
-		if(in_array($view, array('edit','view','view','editfacility','view','edit','client','editclient','viewposition','editposition','edit','view','edit','view','edit','edit','view','workedshift','view','edit','view','edit','view','view','edit','view','edit')))
+		if(in_array($view, array('edit','view','view','editfacility','view','edit','client','editclient','viewposition','editposition','edit','view','edit','view','view','edit','view','edit','view','edit','view','edit')))
 		{
 			$segments[] = (is_array($query['id'])?implode(',', $query['id']):$query['id']);
 			unset( $query['id'] );
@@ -85,7 +85,7 @@ function ChronosParseRoute($segments)
 	}
 
 	//Item layout : get the cid value
-	if(in_array($vars['view'], array('edit','view','view','editfacility','view','edit','client','editclient','viewposition','editposition','edit','view','edit','view','edit','edit','view','workedshift','view','edit','view','edit','view','view','edit','view','edit')) && isset($segments[$nextPos]))
+	if(in_array($vars['view'], array('edit','view','view','editfacility','view','edit','client','editclient','viewposition','editposition','edit','view','edit','view','view','edit','view','edit','view','edit','view','edit')) && isset($segments[$nextPos]))
 	{
 		$slug = $segments[$nextPos];
 		$id = explode( ':', $slug );

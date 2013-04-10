@@ -95,7 +95,7 @@ function resetFilters()
 						echo JDom::_('html.form.input.ajax', array(
 													'dataKey' => 'filter_employee',
 													'dataValue' => $filter->values[0],
-													'ajaxContext' => 'chronos.facilities.ajax.filter2',
+													'ajaxContext' => 'chronos.facilities.ajax.filter1',
 													'ajaxVars' => array('values' => $filter->values)
 													));
 					?>
@@ -113,7 +113,7 @@ function resetFilters()
 						echo JDom::_('html.form.input.ajax', array(
 													'dataKey' => 'filter_study',
 													'dataValue' => $filter->values[0],
-													'ajaxContext' => 'chronos.clients.ajax.filter3',
+													'ajaxContext' => 'chronos.clients.ajax.filter2',
 													'ajaxVars' => array('values' => $filter->values)
 													));
 					?>

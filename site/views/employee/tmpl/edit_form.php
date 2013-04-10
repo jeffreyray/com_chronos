@@ -87,7 +87,7 @@ $fieldSets = $this->form->getFieldsets();
 	    endif;
 	endforeach;
 	?>
-	
+
 
 	</table>
 </fieldset>

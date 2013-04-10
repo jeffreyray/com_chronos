@@ -7,13 +7,13 @@
 			addfieldpath="/administrator/components/com_chronos/models/fields">
 
 		<field name="employee"
-				label="CHRONOS_FIELD_EMPLOYEE_NUMBER"
+				label="CHRONOS_FIELD_EMPLOYEE"
 				alias="_employee_number"
 				required="true"
 				filter="INT"
 				class="validate[required]"
 				listKey="id"
-				labelKey="number"
+				labelKey="name_and_number"
 				type="ckcombo"
 				nullLabel="CHRONOS_JSEARCH_SELECT_EMPLOYEE_NUMBER"/>
 
@@ -25,7 +25,7 @@
 				class="validate[required,custom[timemmddyyyy]]"
 				validate="timemmddyyyy"
 				type="ckcalendar"
-				format="%m-%d-%Y"/>
+				format="%Y-%m-%d"/>
 
 		<field name="reason"
 				label="CHRONOS_FIELD_REASON_LABEL"

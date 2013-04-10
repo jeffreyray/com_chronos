@@ -29,7 +29,7 @@ defined('_JEXEC') or die('Restricted access');
 
 ?>
 <fieldset class="fieldsform">
-	<dl>
+	<table class="admintable">
 		<dt>
 			<label for="_employee_number">
 				<?php echo JText::_( "CHRONOS_FIELD_EMPLOYEE" ); ?> :
@@ -65,7 +65,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php echo JDom::_('html.fly.datetime', array(
 											'dataKey' => 'date_effective',
 											'dataObject' => $this->item,
-											'dateFormat' => "%m-%d-%Y"
+											'dateFormat' => "%Y-%m-%d"
 											));
 
 			?>
@@ -95,5 +95,5 @@ defined('_JEXEC') or die('Restricted access');
 			?>
 		</dd>
 
-	</dl>
+	</table>
 </fieldset>

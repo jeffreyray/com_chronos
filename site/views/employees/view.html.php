@@ -111,24 +111,24 @@ class ChronosViewEmployees extends JView
 
 				break;
 
-			case 'groupby2':
+			case 'filter1':
 				$model = $this->getModel();
 				$items = $model->getItems();
-				/* Ajax Chain : facility > EMPLOYEE
-				 * Called from: view:scheduledshift, layout:edit
+				/* Ajax Filter : facility > EMPLOYEE
+				 * Called from: view:productivities, layout:default
 				 * Group Level : 0
 				 */
 
 				$selected = (is_array($values))?$values[count($values)-1]:null;
 
 
-				$event = 'jQuery("#jform_employee").val(this.value);';
+				$event = 'jQuery("#filter_employee").val(this.value);submitform();';
 				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
 				echo "<div class='separator'>";
 				echo JDom::_('html.form.input.select', array(
 					'dataKey' => '__ajx_employee',
 					'dataValue' => $selected,
-					'formControl' => 'jform',
+					'formControl' => null,
 					'list' => $items,
 					'listKey' => 'id',
 					'labelKey' => 'number',
@@ -145,24 +145,24 @@ class ChronosViewEmployees extends JView
 
 				break;
 
-			case 'filter1':
+			case 'groupby2':
 				$model = $this->getModel();
 				$items = $model->getItems();
-				/* Ajax Filter : facility > EMPLOYEE
-				 * Called from: view:wages, layout:default
+				/* Ajax Chain : facility > EMPLOYEE
+				 * Called from: view:productivity, layout:edit
 				 * Group Level : 0
 				 */
 
 				$selected = (is_array($values))?$values[count($values)-1]:null;
 
 
-				$event = 'jQuery("#filter_employee").val(this.value);submitform();';
+				$event = 'jQuery("#jform_employee").val(this.value);';
 				echo "<div class='ajaxchain-filter ajaxchain-filter-hz'>";
 				echo "<div class='separator'>";
 				echo JDom::_('html.form.input.select', array(
 					'dataKey' => '__ajx_employee',
 					'dataValue' => $selected,
-					'formControl' => null,
+					'formControl' => 'jform',
 					'list' => $items,
 					'listKey' => 'id',
 					'labelKey' => 'number',

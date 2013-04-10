@@ -79,7 +79,13 @@ class ChronosModelFacility extends ChronosModelItem
 		if (!parent::delete($pks))
 			return false;
 
-
+		//Integrity : Reset fk : facility in umbrella
+		$model = JModel::getInstance('umbrella', 'ChronosModel');
+		if (!$model->integrityReset('facility', $pks))
+		{
+			JError::raiseWarning( 1302, JText::_("CHRONOS_ALERT_ERROR_ON_RESET_KEYS") );
+			return false;
+		}
 
 		return true;
 	}
