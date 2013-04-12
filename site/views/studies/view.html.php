@@ -131,7 +131,7 @@ class ChronosViewStudies extends JView
 					'formControl' => 'jform',
 					'list' => $items,
 					'listKey' => 'id',
-					'labelKey' => 'number',
+					'labelKey' => 'name_and_number',
 					'nullLabel' => "CHRONOS_JSEARCH_SELECT_STUDY",
 
 					'selectors' => array(

@@ -170,30 +170,8 @@ function resetFilters()
 
 
 		</div>
-		<div style="float:left">
-			<!-- RANGE : Start Date  -->
+		
 
-				<div class='filter range filter_start_date'>
-					<label class='filter' for="filter_start_date"><?php echo(JText::_("CHRONOS_JSEARCH_START_DATE")); ?> :</label>
-
-					<?php echo JDom::_('html.form.input.range', array(
-												'rangeNameSpace' => 'html.form.input.calendar',
-												'dataKey' => 'filter_start_date',
-												'dataValueFrom' => $this->filters['start_date']->from,
-												'dataValueTo' => $this->filters['start_date']->to,
-												'labelFrom' => "CHRONOS_JSEARCH_FROM",
-												'labelTo' => "CHRONOS_JSEARCH_TO",
-												'size' => 10,
-												'alignHz' => true,
-												'submitEventName' => 'onchange',
-												'styles' => array('width' => '80px'),
-												'dateFormat' => '%Y-%m-%d'
-													));
-					?>
-				</div>
-
-
-		</div>
 		<div style="float:left">
 			<!-- SELECT : Umbrella > Title  -->
 

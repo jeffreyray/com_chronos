@@ -52,7 +52,7 @@
 				nullLabel="CHRONOS_JSEARCH_SELECT_FACILITY"/>
 
 		<field name="umbrella"
-				label="CHRONOS_FIELD_UMBRELLA_TITLE"
+				label="CHRONOS_FIELD_UMBRELLA"
 				alias="_umbrella_title"
 				filter="INT"
 				listKey="id"
@@ -152,7 +152,7 @@
 				nullLabel="CHRONOS_JSEARCH_SELECT_SECONDARY_MANAGER"/>
 
 		<field name="cati_code"
-				label="CHRONOS_FIELD_CATI_CODE_1"
+				label="CHRONOS_FIELD_CATI_CODE"
 				alias="cati_code"
 				filter="STRING"
 				class="validate[custom[length32]]"
@@ -219,8 +219,8 @@
 				label="CHRONOS_FIELD_FINAL_LENGTH"
 				alias="final_length"
 				filter="FLOAT"
-				class="validate[custom[decimal3to2]]"
-				validate="decimal3to2"
+				class="validate[custom[decimal5to2]]"
+				validate="decimal5to2"
 				type="cktext"/>
 
 		<field name="final_incidence"

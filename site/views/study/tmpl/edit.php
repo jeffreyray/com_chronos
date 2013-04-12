@@ -63,12 +63,7 @@ ChronosHelper::headerDeclarations();
 	window.onbeforeunload = function closeIt(){	if (holdForm) return false;};
 </script>
 
-<?php /* TODO : REMOVE ME */
-	echo JDom::_('html.fly.cook.todo', array(
-		'message' => '<strong>TODO</strong> : Edit this template and remove me.'
-	));
 
-?>
 <?php echo(JFactory::getApplication()->get('JComponentTitle')); ?>
 <form action="<?php echo(JRoute::_("index.php")); ?>" method="post" name="adminForm" id="adminForm" class='form-validate' enctype='multipart/form-data'>
 
@@ -100,10 +95,4 @@ ChronosHelper::headerDeclarations();
 				)));
 	?>
 </form>
-<?php /* TODO : REMOVE ME */
-	echo JDom::_('html.fly.cook.todo', array(
-		'file' => __FILE__,
-		'align' => 'left'
-	));
 
-?>

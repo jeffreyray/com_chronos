@@ -218,6 +218,7 @@ class ChronosModelStudies extends ChronosModelList
 								.	'a.number,'
 								.	'a.start_date,'
 								.	'a.title');
+				$this->addSelect( 'CONCAT_WS(\'-\', a.number, a.title ) as name_and_number');
 
 				//SELECT
 				$this->addSelect('_facility_.label AS `_facility_label`');
@@ -231,7 +232,8 @@ class ChronosModelStudies extends ChronosModelList
 			default:
 				//SELECT : raw complete query without joins
 				$this->addSelect('a.*');
-
+				$this->addSelect( 'CONCAT_WS(\'-\', a.number, a.title ) as name_and_number');
+				
 				// Disable the pagination
 				$this->setState('list.limit', null);
 				$this->setState('list.start', null);

@@ -27,13 +27,9 @@ defined('_JEXEC') or die('Restricted access');
 
 
 ChronosHelper::headerDeclarations();
+JToolBarHelper::custom( 'study.edit', 'edit', 'edit', "CHRONOS_JTOOLBAR_EDIT", 0 );
 ?>
-<?php /* TODO : REMOVE ME */
-	echo JDom::_('html.fly.cook.todo', array(
-		'message' => '<strong>TODO</strong> : Edit this template and remove me.'
-	));
 
-?>
 <?php echo(JFactory::getApplication()->get('JComponentTitle')); ?>
 <form action="<?php echo(JRoute::_("index.php")); ?>" method="post" name="adminForm" id="adminForm" enctype='multipart/form-data'>
 
@@ -65,10 +61,4 @@ ChronosHelper::headerDeclarations();
 				)));
 	?>
 </form>
-<?php /* TODO : REMOVE ME */
-	echo JDom::_('html.fly.cook.todo', array(
-		'file' => __FILE__,
-		'align' => 'left'
-	));
 
-?>

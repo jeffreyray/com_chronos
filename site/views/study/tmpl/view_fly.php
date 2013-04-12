@@ -227,7 +227,7 @@ defined('_JEXEC') or die('Restricted access');
 		</dd>
 		<dt>
 			<label for="cati_code">
-				<?php echo JText::_( "CHRONOS_FIELD_CATI_CODE_1" ); ?> :
+				<?php echo JText::_( "CHRONOS_FIELD_CATI_CODE" ); ?> :
 			</label>
 		</dt>
 		<dd>
